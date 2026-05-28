@@ -28,7 +28,7 @@ export function Hero() {
                 care for your home.
               </span>
             </h1>
-            <p className="mt-6 max-w-xl text-base lg:text-lg text-white/70 leading-relaxed">
+            <p className="mt-6 max-w-xl text-sm lg:text-lg text-white/70 leading-relaxed">
               Cleaning, painting, repairs, plumbing, electrical and move-in solutions — delivered by one trusted team.
             </p>
             

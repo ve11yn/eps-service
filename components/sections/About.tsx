@@ -15,7 +15,7 @@ const HIGHLIGHTS = [
 export function About() {
   return (
     <section id="about" className="py-12 lg:py-20 bg-gray-50">
-      <div className="mx-auto max-w-5xl my-15 px-4 lg:px-6">
+      <div className="mx-auto max-w-5xl my-20 px-4 lg:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
@@ -55,7 +55,7 @@ export function About() {
             <h2 className="mt-4 text-3xl lg:text-4xl font-extrabold text-slate-800 leading-tight">
               Your one-stop property partner — built on trust.
             </h2>
-            <p className="mt-6 text-gray-600 text-base leading-relaxed">
+            <p className="mt-6 text-gray-600 text-sm leading-relaxed">
               EPS Services is a one-stop solution provider to landlords, tenants, agents and homeowners facing property-related matters.
               From the first scrub to the final fitting, our team brings calm, reliable craftsmanship to every Singapore home we serve.
             </p>
@@ -63,7 +63,7 @@ export function About() {
               {HIGHLIGHTS.map((highlight) => (
                 <li key={highlight} className="flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-[#6BEA00] shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">{highlight}</span>
+                  <span className="text-xs text-gray-700">{highlight}</span>
                 </li>
               ))}
             </ul>
