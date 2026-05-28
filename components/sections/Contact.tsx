@@ -32,12 +32,12 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-[calc(5rem+10px)] bg-white">
       <div className="mx-auto max-w-6xl px-5">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="inline-block text-xs font-bold text-accent uppercase tracking-wider mb-2">Contact Us</span>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-navy">Get in touch with us</h2>
+          <span className="inline-block text-xs font-bold text-[#1E73D8] uppercase tracking-wider mb-2">Contact Us</span>
+          <h2 className="text-3xl lg:text-4xl font-medium text-navy">Get in touch with us</h2>
           <p className="mt-2 text-muted-foreground">We'll respond within 1 hour during business hours</p>
         </div>
 
@@ -79,51 +79,53 @@ export function Contact() {
           </div>
 
           {/* Right Column - Form */}
-          <div className="bg-soft-grey rounded-lg border border-border p-5">
-            <h3 className="text-lg font-bold text-navy mb-4">Send us a message</h3>
+          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card">
+            <div className="border-t-2 border-[#1E73D8]/20" />
+            <div className="p-6 lg:p-7">
+            <h3 className="text-lg font-semibold text-navy mb-5">Send us a message</h3>
             
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-navy mb-1">
+                <label className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600 mb-2">
                   Full Name <span className="text-accent">*</span>
                 </label>
                 <input 
                   required 
                   value={form.name} 
                   onChange={setField("name")} 
-                  className="w-full px-3 py-2 rounded-lg border border-border bg-white text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#1E73D8]/10"
                   placeholder="Jane Tan" 
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-semibold text-navy mb-1">
+                <label className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600 mb-2">
                   Phone <span className="text-accent">*</span>
                 </label>
                 <input 
                   required 
                   value={form.phone} 
                   onChange={setField("phone")} 
-                  className="w-full px-3 py-2 rounded-lg border border-border bg-white text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#1E73D8]/10"
                   placeholder="+65 9123 4567" 
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-semibold text-navy mb-1">
+                <label className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600 mb-2">
                   Email
                 </label>
                 <input 
                   type="email" 
                   value={form.email} 
                   onChange={setField("email")} 
-                  className="w-full px-3 py-2 rounded-lg border border-border bg-white text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#1E73D8]/10"
                   placeholder="jane@example.com" 
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-semibold text-navy mb-1">
+                <label className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600 mb-2">
                   Message <span className="text-accent">*</span>
                 </label>
                 <textarea
@@ -131,16 +133,15 @@ export function Contact() {
                   rows={3}
                   value={form.message}
                   onChange={setField("message")}
-                  className="w-full px-3 py-2 rounded-lg border border-border bg-white text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition resize-none"
-                  placeholder="Tell us about your needs..."
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#1E73D8]/10 resize-none"
+                  placeholder="Tell us what you need..."
                 />
               </div>
               
-              {/* BUTTON WITH SOLID BACKGROUND */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#1E73D8] to-[#35D6F7] text-white px-4 py-2.5 text-sm font-semibold shadow-md hover:shadow-lg hover:brightness-105 transition-all disabled:opacity-70 mt-4"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#1E73D8] text-white px-4 py-3 text-sm font-medium shadow-sm hover:bg-[#1668c4] transition-all disabled:opacity-70 mt-2"
               >
                 {isSubmitting ? "Sending..." : "Send Message via WhatsApp"}
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -153,6 +154,7 @@ export function Contact() {
                 </div>
               )}
             </form>
+            </div>
           </div>
         </div>
       </div>

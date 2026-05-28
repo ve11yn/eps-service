@@ -1,14 +1,5 @@
-import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
+import { Facebook, Instagram, MapPin, Phone, Mail } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
-import Link from "next/link";
-
-const NAV_ITEMS = [
-  { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
-  { label: "Services", href: "/service" },
-  { label: "Reviews", href: "/#reviews" },
-  { label: "Contact", href: "/#contact" },
-];
 
 const PHONE = "+65 8274 4647";
 const PHONE_TEL = "+6582744647";
@@ -17,10 +8,12 @@ const ADDRESS = "33 Borthwick Dr, Singapore 559536";
 export function Footer() {
   return (
     <footer className="bg-slate-900 text-white pt-12 pb-6">
-      <div className="mx-auto max-w-5xl px-4 lg:px-6">
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        {/* Two Column Layout - Brand on left, Contact on right */}
+        <div className="flex flex-col md:flex-row md:justify-between gap-8">
+          
           {/* Left side - Logo & Description */}
-          <div className="lg:max-w-md">
+          <div className="md:max-w-md">
             <Logo />
             <p className="mt-4 text-sm text-white/65 leading-relaxed">
               Singapore's trusted one-stop home services partner since 2014. Cleaning, repairs and everything in between.
@@ -44,7 +37,6 @@ export function Footer() {
               >
                 <Instagram className="h-3.5 w-3.5" />
               </a>
-             
             </div>
           </div>
 
@@ -73,9 +65,8 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/40">
+        <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/40">
           <p>© {new Date().getFullYear()} EPS Services. All rights reserved.</p>
-          <p>33 Borthwick Dr, Singapore 559536 | +65 8274 4647</p>
         </div>
       </div>
     </footer>

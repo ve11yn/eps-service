@@ -69,7 +69,7 @@ export default function ServicesPage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f1d3a] to-[#1a2a4f]">
+      <section className="relative pt-[calc(8rem+10px)] pb-[calc(5rem+10px)] bg-gradient-to-br from-[#0a1628] via-[#0f1d3a] to-[#1a2a4f]">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-extrabold text-white leading-tight">
@@ -92,9 +92,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 lg:py-28">
+      <section className="py-[calc(5rem+10px)] lg:py-[calc(7rem+10px)]">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="text-center max-w-2xl mx-auto mb-[calc(3rem+10px)]">
             <span className="inline-block text-xs font-bold text-accent uppercase tracking-wider">What We Offer</span>
             <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-navy">
               Comprehensive Home Services
@@ -132,7 +132,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Trust Badges */}
-          <div className="mt-16 flex flex-wrap justify-center gap-8">
+          <div className="mt-[calc(4rem+10px)] flex flex-wrap justify-center gap-8">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-full bg-accent/10 grid place-items-center">
                 <Clock className="h-5 w-5 text-accent" />
@@ -165,7 +165,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-soft-grey">
+      <section className="py-[calc(5rem+10px)] bg-soft-grey">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-extrabold text-navy">
             Ready to transform your home?

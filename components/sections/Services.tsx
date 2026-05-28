@@ -14,11 +14,11 @@ const SERVICES_LIST = [
 
 export function Services() {
   return (
-    <section id="services" className="py-12 lg:py-20 bg-white">
+    <section id="services" className="py-16 lg:py-24 bg-white">
       <div className="mx-auto max-w-5xl px-4 lg:px-6">
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="inline-block text-xs font-bold text-[#1E73D8] uppercase tracking-wider mb-2">What we do</span>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-800">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-slate-800">
             One trusted team for every home essential.
           </h2>
           <p className="mt-4 text-gray-600">
@@ -26,7 +26,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-2">
           {SERVICES_LIST.map((service) => {
             const Icon = service.icon;
             return (
@@ -39,8 +39,8 @@ export function Services() {
                     <Icon className="h-6 w-6 text-[#1E73D8] group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-slate-800">{service.title}</h3>
-                    <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">{service.desc}</p>
+                    <h3 className="text-base font-medium text-slate-800">{service.title}</h3>
+                    <p className="mt-1.5 text-xs text-gray-600 leading-relaxed">{service.desc}</p>
                   </div>
                 </div>
               </div>
@@ -48,10 +48,13 @@ export function Services() {
           })}
         </div>
 
-        <div className="mt-10 text-center">
-          <a href="#contact" className="inline-flex items-center gap-2 text-[#1E73D8] font-semibold hover:gap-3 transition-all">
-            Need a different service? Just ask us → 
-          </a>
+        <div className="mt-12 text-center">
+         <span className="inline-flex items-center gap-2 font-medium">
+        <span className="text-black">Need a different service?</span>
+        <span className="text-[#1E73D8] hover:underline cursor-pointer">
+            Contact us →
+        </span>
+        </span>
         </div>
       </div>
     </section>

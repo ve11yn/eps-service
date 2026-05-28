@@ -14,12 +14,12 @@ const HIGHLIGHTS = [
 
 export function About() {
   return (
-    <section id="about" className="py-12 lg:py-20 bg-gray-50">
-      <div className="mx-auto max-w-5xl my-20 px-4 lg:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="about" className="py-[calc(3rem+10px)] lg:py-[calc(4.5rem+10px)] bg-gray-50">
+      <div className="mx-auto max-w-5xl my-[calc(4rem+10px)] px-4 lg:px-6">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-3.5">
+              <div className="space-y-3.5">
                 <Image
                 src="/about-team.jpg"
                 alt="EPS Services maintenance team"
@@ -27,15 +27,15 @@ export function About() {
                 height={600}
                 className="rounded-2xl shadow-card aspect-[4/5] object-cover w-full"
               />
-                <div className="rounded-2xl bg-gradient-primary text-white p-5 shadow-lg">
-                  <div className="text-4xl font-extrabold">10+</div>
-                  <div className="mt-1 text-sm text-white/85">Years serving Singapore homes</div>
+                <div className="rounded-2xl bg-gradient-primary text-white p-4 shadow-lg">
+                  <div className="text-4xl font-semibold">10+</div>
+                  <div className="mt-1 text-sm text-white/85">Years</div>
                 </div>
               </div>
-              <div className="pt-10 space-y-4">
-                <div className="rounded-2xl bg-slate-800 text-white p-5 shadow-lg">
-                  <div className="text-4xl font-extrabold">1,000+</div>
-                  <div className="mt-1 text-sm text-white/70">Properties handled</div>
+              <div className="pt-8 space-y-3.5">
+                <div className="rounded-2xl bg-slate-800 text-white p-4 shadow-lg">
+                  <div className="text-4xl font-semibold">1,000+</div>
+                  <div className="mt-1 text-sm text-white/70">Projects</div>
                 </div>
                 
 
@@ -52,14 +52,13 @@ export function About() {
 
           <div>
             <span className="inline-block text-xs font-bold text-[#1E73D8] uppercase tracking-wider">About EPS Services</span>
-            <h2 className="mt-4 text-3xl lg:text-4xl font-extrabold text-slate-800 leading-tight">
-              Your one-stop property partner — built on trust.
-            </h2>
-            <p className="mt-6 text-gray-600 text-sm leading-relaxed">
-              EPS Services is a one-stop solution provider to landlords, tenants, agents and homeowners facing property-related matters.
-              From the first scrub to the final fitting, our team brings calm, reliable craftsmanship to every Singapore home we serve.
+          <h2 className="mt-4 text-3xl lg:text-4xl font-medium text-slate-800 leading-tight">
+            Your one-stop property partner.
+          </h2>
+            <p className="mt-5 text-gray-600 text-sm leading-relaxed">
+              One team for cleaning, repairs, painting, and move-in work across condos, HDB, and landed homes.
             </p>
-            <ul className="mt-8 grid sm:grid-cols-2 gap-3">
+            <ul className="mt-6 grid sm:grid-cols-2 gap-3">
               {HIGHLIGHTS.map((highlight) => (
                 <li key={highlight} className="flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-[#6BEA00] shrink-0 mt-0.5" />
@@ -67,7 +66,7 @@ export function About() {
                 </li>
               ))}
             </ul>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-lg bg-gradient-primary text-white px-6 py-3 font-semibold shadow-md hover:shadow-lg transition"
