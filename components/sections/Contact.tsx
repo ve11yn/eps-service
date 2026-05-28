@@ -85,7 +85,7 @@ export function Contact() {
             </div>
 
             {/* Map */}
-            <div className="overflow-hidden rounded-2xl border border-slate-200 h-60 shadow-sm">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 h-[260px] shadow-sm">
               <iframe
                 title="EPS Services location"
                 src={MAP_EMBED_SRC}
