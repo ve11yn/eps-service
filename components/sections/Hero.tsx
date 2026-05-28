@@ -40,7 +40,7 @@ export function Hero() {
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full bg-[#1E73D8] text-white px-7 py-3.5 font-medium shadow-sm hover:bg-[#1668c4] hover:-translate-y-0.5 transition-all"
             >
-              Get a Free Quote <ArrowRight className="h-4 w-4" />
+              Contact Us <ArrowRight className="h-4 w-4" />
             </a>
 
             <a

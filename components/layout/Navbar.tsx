@@ -56,7 +56,7 @@ export function Navbar() {
           href="/#contact"
           className="hidden lg:inline-flex items-center gap-2 rounded-full bg-gradient-primary text-white px-5 py-2.5 text-sm font-semibold shadow-md hover:shadow-lg transition-all"
         >
-          Get Free Quote <ArrowRight className="h-4 w-4" />
+          Contact Us <ArrowRight className="h-4 w-4" />
         </Link>
 
         <button
@@ -86,7 +86,7 @@ export function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary text-white px-5 py-3 font-semibold"
             >
-              Get Free Quote <ArrowRight className="h-4 w-4" />
+              Contact Us <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>

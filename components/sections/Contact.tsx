@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, Phone, Mail, ArrowRight, Clock, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 
 const PHONE = "+65 8274 4647";
 const PHONE_TEL = "+6582744647";
+const CLEANING_PHONE = "+65 8774 1959";
+const CLEANING_PHONE_TEL = "+6587741959";
 const WHATSAPP = "6582744647";
-const ADDRESS = "33 Borthwick Dr, Singapore 559536";
+const MAP_EMBED_SRC = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.692521075655!2d103.85972777513895!3d1.361136761539118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da17cdb623048b%3A0xbafd330da4604d02!2sEPS%20Services%20Pte%20Ltd!5e0!3m2!1sen!2sid!4v1779962577289!5m2!1sen!2sid";
+const MAP_LINK = "https://maps.app.goo.gl/6GVsvihk84xKgR8v5";
 
 export function Contact() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
@@ -44,31 +47,48 @@ export function Contact() {
         <div className="grid lg:grid-cols-2 gap-6">
           {/* Left Column - Contact Info */}
           <div className="space-y-4">
-            {/* Contact Cards Row */}
-            <div className="grid grid-cols-1 gap-3">
-              <ContactItem icon={MapPin} label="VISIT US" value={ADDRESS} />
-              <ContactItem icon={Phone} label="CALL US" value={PHONE} href={`tel:${PHONE_TEL}`} />
-              <ContactItem icon={Mail} label="EMAIL US" value="hello@epsservices.sg" href="mailto:hello@epsservices.sg" />
-            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="grid gap-3">
+                <div className="flex items-start justify-between gap-4 border-b border-slate-100 pb-4">
+                  <div className="min-w-0">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#1E73D8]">EPS</div>
+                    <h3 className="mt-1 text-sm font-medium leading-snug text-navy">
+                      For Repairs &amp; Other Enquiries
+                    </h3>
+                    <p className="mt-2 max-w-md text-sm leading-relaxed text-slate-500">
+                      Please provide pictures of issues for a quicker quotation
+                    </p>
+                  </div>
+                  <a
+                    href={`tel:${PHONE_TEL}`}
+                    className="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-navy transition-colors hover:border-[#1E73D8]/30 hover:text-[#1E73D8]"
+                  >
+                    {PHONE}
+                  </a>
+                </div>
 
-            {/* Business Hours */}
-            <div className="bg-soft-grey rounded-lg p-4 border border-border">
-              <div className="flex items-center gap-2 mb-2">
-                <Clock className="h-4 w-4 text-accent" />
-                <h3 className="font-semibold text-navy text-sm">Business Hours</h3>
-              </div>
-              <div className="space-y-1 text-xs text-muted-foreground">
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 9:00 AM - 2:00 PM</p>
-                <p>Sunday: Closed</p>
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#1E73D8]">EPS TANIA</div>
+                    <h3 className="mt-1 text-sm font-medium leading-snug text-navy">
+                      For Cleaning/curtain Cleaning/Stain removal/floor works
+                    </h3>
+                  </div>
+                  <a
+                    href={`tel:${CLEANING_PHONE_TEL}`}
+                    className="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-navy transition-colors hover:border-[#1E73D8]/30 hover:text-[#1E73D8]"
+                  >
+                    {CLEANING_PHONE}
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* Map */}
-            <div className="rounded-lg overflow-hidden border border-border h-40">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 h-60 shadow-sm">
               <iframe
                 title="EPS Services location"
-                src={`https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`}
+                src={MAP_EMBED_SRC}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -76,6 +96,14 @@ export function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+            <a
+              href={MAP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-3 text-sm font-medium text-[#1E73D8] hover:gap-3 transition-all"
+            >
+              View on Google Maps <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
 
           {/* Right Column - Form */}
@@ -159,23 +187,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  );
-}
-
-function ContactItem({ icon: Icon, label, value, href }: { icon: any; label: string; value: string; href?: string }) {
-  const Wrapper = href ? "a" : "div";
-  return (
-    <Wrapper 
-      href={href}
-      className="flex items-center gap-3 p-3 rounded-lg border border-border bg-white hover:shadow-sm transition"
-    >
-      <div className="h-8 w-8 rounded-lg bg-accent/10 grid place-items-center shrink-0">
-        <Icon className="h-4 w-4 text-accent" />
-      </div>
-      <div>
-        <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">{label}</div>
-        <div className="text-sm text-navy font-medium">{value}</div>
-      </div>
-    </Wrapper>
   );
 }

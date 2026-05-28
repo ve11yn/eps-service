@@ -112,16 +112,7 @@ export function Reviews() {
         </div>
 
         <div className="text-center mt-10">
-          <a
-            href="https://g.page/r/your-google-business-id/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:bg-gray-50 hover:border-[#1E73D8] transition"
-          >
-            <Star className="h-4 w-4 fill-[#F5C542] text-[#F5C542]" />
-            Read more reviews on Google
-            <span className="text-xs">→</span>
-          </a>
+          <p className="text-sm text-slate-500">More client feedback available on request.</p>
         </div>
       </div>
     </section>

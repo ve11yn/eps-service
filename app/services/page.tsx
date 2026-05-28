@@ -84,7 +84,7 @@ export default function ServicesPage() {
                 href="/#contact"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-blue text-white px-6 py-3 font-semibold shadow-lg hover:brightness-110 transition"
               >
-                Get Free Quote <ArrowRight className="h-4 w-4" />
+                Contact Us <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -170,15 +170,13 @@ export default function ServicesPage() {
           <h2 className="text-3xl lg:text-4xl font-extrabold text-navy">
             Ready to transform your home?
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-            Contact us today for a free quote. We'll respond within 1 hour during business hours.
-          </p>
+     
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/#contact"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-blue text-white px-6 py-3 font-semibold shadow-lg hover:brightness-110 transition"
             >
-              Get Free Quote <ArrowRight className="h-4 w-4" />
+              Contact Us <ArrowRight className="h-4 w-4" />
             </Link>
             <a
               href="tel:+6582744647"
