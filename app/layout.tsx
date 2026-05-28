@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "EPS Services — Professional Property Maintenance & Cleaning in Singapore",
+  title: "EPS Services",
   description: "Trusted Singapore home services since 2014. Cleaning, painting, repairs, marble polishing, plumbing, electrical works and move-in solutions.",
   metadataBase: new URL("https://epsservices.sg"),
   openGraph: {
@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     siteName: "EPS Services",
     locale: "en_SG",
     type: "website",
-    images: ["/og-image.jpg"],
+    images: ["/logo-temp.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "EPS Services — Premium Property Maintenance & Cleaning in Singapore",
     description: "Trusted Singapore home services since 2014.",
-    images: ["/og-image.jpg"],
+    images: ["/logo-temp.png"],
   },
 };
 
