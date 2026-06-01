@@ -120,7 +120,7 @@ export function Navbar() {
               href="/#contact"
               className="inline-flex items-center gap-1.5 rounded-full bg-gradient-primary text-white px-4 py-1.5 text-xs font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
             >
-              Get Quote <ArrowRight className="h-3 w-3" />
+              Contact Us <ArrowRight className="h-3 w-3" />
             </Link>
           </div>
 

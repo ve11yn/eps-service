@@ -1,8 +1,11 @@
 import Image from "next/image";
-import { Phone, CheckCircle2, ArrowRight, Users, Calendar, Home, Award } from "lucide-react";
-
-const PHONE = "+65 8274 4647";
-const PHONE_TEL = "+6582744647";
+import {
+  CheckCircle2,
+  Users,
+  Calendar,
+  Home,
+  Award,
+} from "lucide-react";
 
 const SERVICE_HIGHLIGHTS = [
   "Cleaning & disinfecting",
@@ -12,29 +15,29 @@ const SERVICE_HIGHLIGHTS = [
 ];
 
 const STATS = [
-  { 
-    icon: Calendar, 
-    value: "10+", 
+  {
+    icon: Calendar,
+    value: "10+",
     label: "Years of Service",
-    description: "Trusted since 2014"
+    description: "Trusted since 2014",
   },
-  { 
-    icon: Users, 
-    value: "1,000+", 
+  {
+    icon: Users,
+    value: "1,000+",
     label: "Happy Clients",
-    description: "Landlords & homeowners"
+    description: "Landlords & homeowners",
   },
-  { 
-    icon: Home, 
-    value: "2,500+", 
+  {
+    icon: Home,
+    value: "2,500+",
     label: "Projects Completed",
-    description: "Condo | HDB | Landed"
+    description: "Condo • HDB • Landed",
   },
-  { 
-    icon: Award, 
-    value: "100%", 
+  {
+    icon: Award,
+    value: "100%",
     label: "Satisfaction Rate",
-    description: "Quality guaranteed"
+    description: "Quality guaranteed",
   },
 ];
 
@@ -42,84 +45,80 @@ export function About() {
   return (
     <section id="about" className="py-16 lg:py-24 bg-gray-50">
       <div className="mx-auto max-w-6xl px-4 lg:px-6">
-        {/* Main 2-column layout */}
+        
+        {/* Header */}
+        <div className="max-w-3xl mb-12">
+          <span className="inline-block text-sm font-semibold text-[#1E73D8] uppercase tracking-wide mb-2">
+            About EPS
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-medium text-slate-800">
+            One-stop property solutions <span className="text-[#1E73D8]">since 2014</span>
+          </h2>
+        
+        </div>
+
+        {/* Main Content - 2 columns */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           
-          {/* Left side - Images with keypoints */}
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-3">
-              {/* Main large image */}
-              <div className="space-y-3">
-                <div className="rounded-2xl overflow-hidden shadow-lg relative group">
+          {/* Left: Images */}
+          <div>
+            <div className="grid grid-cols-2 gap-4">
+              {/* Left column */}
+              <div className="space-y-4">
+                <div className="relative overflow-hidden rounded-xl shadow-lg group">
                   <Image
                     src="/about-team.jpg"
-                    alt="EPS Services team"
-                    width={400}
+                    alt="EPS Services Team"
+                    width={500}
+                    height={650}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+                  <div className="text-2xl font-bold text-slate-800">24/7</div>
+                  <div className="text-sm text-gray-600 mt-0.5">Emergency support available</div>
+                </div>
+              </div>
+
+              {/* Right column */}
+              <div className="space-y-4 pt-8">
+                <div className="relative overflow-hidden rounded-xl shadow-lg group">
+                  <Image
+                    src="/about-work.jpg"
+                    alt="EPS Technician Working"
+                    width={500}
                     height={500}
                     className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-              
                 </div>
-                
-                {/* Small stat card */}
-                <div className="bg-[#1E73D8] rounded-2xl p-4 shadow-lg">
-                  <div className="text-2xl font-bold text-white">24/7</div>
-                  <div className="text-sm text-white/80">Emergency support</div>
-                </div>
-              </div>
-              
-              {/* Right column images */}
-              <div className="space-y-3 pt-8">
-                <div className="rounded-2xl overflow-hidden shadow-lg relative group">
-                  <Image
-                    src="/about-work.jpg"
-                    alt="EPS technician working"
-                    width={400}
-                    height={350}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-              
-                </div>
-                
-                <div className="bg-gray-800 rounded-2xl p-4 shadow-lg">
-                  <div className="text-2xl font-bold text-white">Licensed</div>
-                  <div className="text-sm text-white/70">Insured professionals</div>
-                </div>
+               
               </div>
             </div>
           </div>
 
-          {/* Right side - Text content */}
+          {/* Right: Text Content */}
           <div>
-            <span className="inline-block text-sm font-semibold text-[#1E73D8] uppercase tracking-wide">
-              We Are EPS
-            </span>
-            <h2 className="mt-2 text-2xl lg:text-3xl font-bold text-slate-800">
-              One-stop property solutions <span className="text-[#1E73D8]">since 2014</span>
-            </h2>
 
             <div className="mt-4 space-y-3 text-gray-600 text-sm leading-relaxed">
               <p>
-                EPS Services is a one stop solution provider to landlords,
-                tenants, agents and homeowners who are facing property related
-                matters in their day to day lives.
+                EPS Services provides comprehensive property maintenance
+                solutions for landlords, tenants, agents and homeowners across
+                Singapore.
               </p>
               <p>
-                With more than a decade of industry experience, our services
-                ranges from cleaning, disinfecting, marble work to minor repairs
-                such as painting, flooring work, plumbing, electrical work and
-                more so as to provide a move in condition to any residential
-                unit.
+                Our experienced team handles everything from deep cleaning and
+                disinfecting to painting, marble restoration, flooring works,
+                plumbing, electrical repairs and general maintenance.
               </p>
               <p>
-                We have a team of experienced technicians, plumber, electricians
-                and cleaners who are capable to give your problems an efficient
-                and convenient solutions.
+                With more than a decade of industry experience, we focus on
+                delivering efficient, reliable and hassle-free services that
+                keep properties in excellent move-in condition.
               </p>
             </div>
 
-            {/* Service tags */}
-            <div className="mt-5 flex flex-wrap gap-2">
+            {/* Service Chips */}
+            <div className="mt-6 flex flex-wrap gap-2">
               {SERVICE_HIGHLIGHTS.map((service) => (
                 <span
                   key={service}
@@ -133,38 +132,33 @@ export function About() {
           </div>
         </div>
 
-        {/* Stats bar at the bottom */}
-        <div className="mt-16 pt-8 border-t border-gray-200">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {STATS.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <div 
-                  key={index}
-                  className="text-center group cursor-default"
-                >
-                  <div className="flex justify-center mb-3">
-                    <div className="w-12 h-12 bg-[#1E73D8]/10 rounded-full flex items-center justify-center group-hover:bg-[#1E73D8] transition-colors duration-300">
-                      <Icon className="h-6 w-6 text-[#1E73D8] group-hover:text-white transition-colors duration-300" />
-                    </div>
-                  </div>
-                  <div className="text-2xl lg:text-3xl font-bold text-slate-800">
+        {/* Stats Section - Clean horizontal layout */}
+        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {STATS.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={stat.label}
+                className="flex items-center gap-4 rounded-xl bg-white border border-gray-100 p-5 shadow-sm hover:shadow-md transition-all"
+              >
+                <div className="h-10 w-10 rounded-full bg-[#1E73D8]/10 flex items-center justify-center shrink-0">
+                  <Icon className="h-5 w-5 text-[#1E73D8]" />
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-slate-800 leading-none">
                     {stat.value}
                   </div>
-                  <div className="text-sm font-semibold text-slate-700 mt-1">
+                  <div className="text-sm font-medium text-slate-700 mt-1">
                     {stat.label}
                   </div>
                   <div className="text-xs text-gray-400 mt-0.5">
                     {stat.description}
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
-
-       
-    
       </div>
     </section>
   );
