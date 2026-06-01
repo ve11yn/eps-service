@@ -21,9 +21,7 @@ export function Services() {
           <h2 className="text-3xl lg:text-4xl font-semibold text-slate-800">
             One trusted team for every home essential.
           </h2>
-          <p className="mt-4 text-gray-600">
-            From routine upkeep to specialised work — clear scope, fair pricing, and craftsmanship you can rely on.
-          </p>
+        
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-2">

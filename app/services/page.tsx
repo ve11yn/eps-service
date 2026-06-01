@@ -157,7 +157,6 @@ export default function ServicesPage() {
               </div>
               <div>
                 <div className="font-bold text-navy">5.0 Rating</div>
-                <div className="text-xs text-muted-foreground">120+ Reviews</div>
               </div>
             </div>
           </div>

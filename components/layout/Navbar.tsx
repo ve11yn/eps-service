@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Phone, ChevronDown } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import Link from "next/link";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/#home" },
   { label: "About", href: "/#about" },
-  { label: "Services", href: "/service" },
+  { label: "Services", href: "/service", hasDropdown: true },
   { label: "Reviews", href: "/#reviews" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -16,9 +16,10 @@ const NAV_ITEMS = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -26,68 +27,166 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200"
-          : "bg-transparent"
+          ? "bg-white shadow-lg border-b border-gray-100"
+          : "bg-gradient-to-b from-black/30 to-transparent"
       }`}
     >
-      <div className="mx-auto max-w-5xl px-4 lg:px-6 py-4 flex items-center justify-between">
-        <Logo dark={scrolled} />
+      <div className="mx-auto max-w-6xl px-4 lg:px-8">
+        <div className="flex items-center justify-between h-12 lg:h-14">
+          {/* Logo */}
+          <div className="transition-transform duration-300 hover:scale-[1.02]">
+            <Logo dark={scrolled} />
+          </div>
 
-        <nav className="hidden lg:flex items-center gap-9 text-sm font-medium">
-          {NAV_ITEMS.map((item) => (
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {NAV_ITEMS.map((item) => (
+              <div
+                key={item.href}
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(item.label)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <Link
+                  href={item.href}
+                  className={`flex items-center gap-1 text-sm font-medium transition-all duration-200 ${
+                    scrolled
+                      ? "text-gray-700 hover:text-[#1E73D8]"
+                      : "text-white/90 hover:text-white"
+                  } relative py-1.5 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#1E73D8] after:transition-all after:duration-300 hover:after:w-full`}
+                >
+                  {item.label}
+                  {item.hasDropdown && (
+                    <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
+                  )}
+                </Link>
+
+                {/* Dropdown menu - fixed positioning */}
+                {item.hasDropdown && activeDropdown === item.label && (
+                  <div className="absolute left-0 top-full pt-1 w-52 z-50">
+                    <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-1.5 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <Link
+                        href="/service/cleaning"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#1E73D8] transition"
+                      >
+                        Cleaning Services
+                      </Link>
+                      <Link
+                        href="/service/repairs"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#1E73D8] transition"
+                      >
+                        Repairs & Maintenance
+                      </Link>
+                      <Link
+                        href="/service/painting"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#1E73D8] transition"
+                      >
+                        Painting Services
+                      </Link>
+                      <div className="h-px bg-gray-100 my-1" />
+                      <Link
+                        href="/service"
+                        onClick={() => setActiveDropdown(null)}
+                        className="block px-4 py-2 text-sm font-medium text-[#1E73D8] hover:bg-gray-50 transition"
+                      >
+                        View All Services →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-2">
             <Link
-              key={item.href}
-              href={item.href}
-              className={`transition-colors ${
+              href="tel:+6582744647"
+              className={`flex items-center gap-1.5 text-xs font-medium transition-all duration-200 ${
                 scrolled
-                  ? "text-gray-700 hover:text-[#1E73D8]"
-                  : "text-white/90 hover:text-white"
+                  ? "text-gray-600 hover:text-[#1E73D8]"
+                  : "text-white/80 hover:text-white"
               }`}
             >
-              {item.label}
+              <Phone className="h-3.5 w-3.5" />
+              +65 8274 4647
             </Link>
-          ))}
-        </nav>
-
-        {/* Primary CTA Button - Blue Gradient */}
-        <Link
-          href="/#contact"
-          className="hidden lg:inline-flex items-center gap-2 rounded-full bg-gradient-primary text-white px-5 py-2.5 text-sm font-semibold shadow-md hover:shadow-lg transition-all"
-        >
-          Contact Us <ArrowRight className="h-4 w-4" />
-        </Link>
-
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className={`lg:hidden p-2 rounded-md ${scrolled ? "text-gray-700" : "text-white"}`}
-          aria-label="Menu"
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
-          <div className="px-5 py-4 flex flex-col gap-1">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-3 rounded-lg text-gray-700 font-medium hover:bg-gray-50 hover:text-[#1E73D8]"
-              >
-                {item.label}
-              </Link>
-            ))}
             <Link
               href="/#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-primary text-white px-5 py-3 font-semibold"
+              className="inline-flex items-center gap-1.5 rounded-full bg-gradient-primary text-white px-4 py-1.5 text-xs font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200"
             >
-              Contact Us <ArrowRight className="h-4 w-4" />
+              Get Quote <ArrowRight className="h-3 w-3" />
             </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className={`lg:hidden p-1.5 rounded-xl transition-all duration-200 ${
+              scrolled
+                ? "text-gray-700 hover:bg-gray-100"
+                : "text-white hover:bg-white/10"
+            }`}
+            aria-label="Menu"
+          >
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed inset-x-0 top-12 lg:top-14 bottom-0 bg-white z-40 animate-in slide-in-from-top-5 duration-300 overflow-y-auto">
+          <div className="flex flex-col min-h-full">
+            <div className="flex-1 px-4 py-4">
+              <div className="flex flex-col gap-0.5">
+                {NAV_ITEMS.map((item) => (
+                  <div key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between px-3 py-3 rounded-xl text-gray-800 font-medium hover:bg-gray-50 hover:text-[#1E73D8] transition"
+                    >
+                      {item.label}
+                      {item.hasDropdown && <ChevronDown className="h-3.5 w-3.5" />}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 px-3">
+                <div className="h-px bg-gray-100 mb-4" />
+                <Link
+                  href="tel:+6582744647"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-gray-50 mb-2"
+                >
+                  <Phone className="h-4 w-4 text-[#1E73D8]" />
+                  <div>
+                    <div className="text-xs text-gray-500">Call us</div>
+                    <div className="text-sm font-semibold text-gray-800">+65 8274 4647</div>
+                  </div>
+                </Link>
+                <Link
+                  href="/#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 rounded-xl bg-gradient-primary text-white px-4 py-3 font-semibold shadow-md text-sm mt-2"
+                >
+                  Free Consultation <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="px-4 py-2.5 bg-gray-50 border-t border-gray-100">
+              <p className="text-center text-xs text-gray-400">
+                Serving Singapore since 2014
+              </p>
+            </div>
           </div>
         </div>
       )}

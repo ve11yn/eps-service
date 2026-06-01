@@ -38,9 +38,9 @@ export function Contact() {
       <div className="mx-auto max-w-6xl px-5">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="inline-block text-xs font-bold text-[#1E73D8] uppercase tracking-wider mb-2">Contact Us</span>
+          <span className="inline-block text-sm font-bold text-[#1E73D8] uppercase tracking-wider mb-2">Contact Us</span>
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-800">Get in touch with us</h2>
-            <p className="mt-2 text-slate-500 text-sm">Contact us for any enquiries</p>
+            <p className="mt-2 text-slate-500 text-base">Contact us for any enquiries</p>
         </div>
 
         <div className="flex flex-row gap-6 items-stretch">
@@ -56,19 +56,18 @@ export function Contact() {
                       <Phone className="h-4 w-4 text-[#1E73D8]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-slate-800 text-sm">Repairs &amp; General Enquiries</h3>
+                      <h3 className="font-semibold text-slate-800 text-base">Repairs &amp; General Enquiries</h3>
                     </div>
                   </div>
                   <a
                     href={`tel:${PHONE_TEL}`}
-                    className="shrink-0 rounded-full bg-[#1E73D8] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#1668c4] transition"
+                    className="shrink-0 rounded-full bg-[#1E73D8] px-3 py-1.5 text-sm font-medium text-white hover:bg-[#1668c4] transition"
                   >
                     {PHONE}
                   </a>
                 </div>
               </div>
 
-              {/* EPS Tania */}
               <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow-md transition">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
@@ -76,12 +75,12 @@ export function Contact() {
                       <Phone className="h-4 w-4 text-[#35D6F7]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-slate-800 text-sm">Cleaning Services</h3>
+                      <h3 className="font-semibold text-slate-800 text-base">Cleaning Services</h3>
                     </div>
                   </div>
                   <a
                     href={`tel:${CLEANING_PHONE_TEL}`}
-                    className="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700 hover:border-[#35D6F7] hover:text-[#35D6F7] transition"
+                    className="shrink-0 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-[#35D6F7] hover:text-[#35D6F7] transition"
                   >
                     {CLEANING_PHONE}
                   </a>
@@ -96,8 +95,8 @@ export function Contact() {
                   <Clock className="h-4 w-4 text-slate-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-800 text-sm">Business Hours</h3>
-                  <div className="mt-2 space-y-0.5 text-xs text-slate-500">
+                  <h3 className="font-semibold text-slate-800 text-base">Business Hours</h3>
+                  <div className="mt-2 space-y-0.5 text-sm text-slate-500">
                     <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
                     <p>Saturday: 9:00 AM - 2:00 PM</p>
                     <p>Sunday: Closed</p>
@@ -113,8 +112,8 @@ export function Contact() {
                   <MapPin className="h-4 w-4 text-slate-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-800 text-sm">Visit Us</h3>
-                  <p className="mt-2 text-xs text-slate-500">{ADDRESS}</p>
+                  <h3 className="font-semibold text-slate-800 text-base">Visit Us</h3>
+                  <p className="mt-2 text-sm text-slate-500">{ADDRESS}</p>
                 </div>
               </div>
             </div>
@@ -127,46 +126,46 @@ export function Contact() {
               
               <form onSubmit={handleSubmit} className="flex-1 flex flex-col space-y-3">
                 <div>
-                  <label className="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
                     Full Name <span className="text-[#1E73D8]">*</span>
                   </label>
                   <input 
                     required 
                     value={form.name} 
                     onChange={setField("name")} 
-                    className="w-full px-3 py-1.5 text-sm rounded-lg border border-slate-200 bg-slate-50 text-slate-800 placeholder:text-slate-400 focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1E73D8]/20 transition"
+                    className="w-full px-3 py-1.5 text-base rounded-lg border border-slate-200 bg-slate-50 text-slate-800 placeholder:text-slate-400 focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1E73D8]/20 transition"
                     placeholder="Jane Tan" 
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
                     Phone <span className="text-[#1E73D8]">*</span>
                   </label>
                   <input 
                     required 
                     value={form.phone} 
                     onChange={setField("phone")} 
-                    className="w-full px-3 py-1.5 text-sm rounded-lg border border-slate-200 bg-slate-50 text-slate-800 placeholder:text-slate-400 focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1E73D8]/20 transition"
+                    className="w-full px-3 py-1.5 text-base rounded-lg border border-slate-200 bg-slate-50 text-slate-800 placeholder:text-slate-400 focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1E73D8]/20 transition"
                     placeholder="+65 9123 4567" 
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
                     Email
                   </label>
                   <input 
                     type="email" 
                     value={form.email} 
                     onChange={setField("email")} 
-                    className="w-full px-3 py-1.5 text-sm rounded-lg border border-slate-200 bg-slate-50 text-slate-800 placeholder:text-slate-400 focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1E73D8]/20 transition"
+                    className="w-full px-3 py-1.5 text-base rounded-lg border border-slate-200 bg-slate-50 text-slate-800 placeholder:text-slate-400 focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1E73D8]/20 transition"
                     placeholder="jane@example.com" 
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-1">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
                     Message <span className="text-[#1E73D8]">*</span>
                   </label>
                   <textarea
@@ -174,7 +173,7 @@ export function Contact() {
                     rows={3}
                     value={form.message}
                     onChange={setField("message")}
-                    className="w-full px-3 py-1.5 text-sm rounded-lg border border-slate-200 bg-slate-50 text-slate-800 placeholder:text-slate-400 focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1E73D8]/20 transition resize-none"
+                    className="w-full px-3 py-1.5 text-base rounded-lg border border-slate-200 bg-slate-50 text-slate-800 placeholder:text-slate-400 focus:border-[#1E73D8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1E73D8]/20 transition resize-none"
                     placeholder="Tell us what you need..."
                   />
                 </div>
@@ -189,7 +188,7 @@ export function Contact() {
                 </button>
                 
                 {submitted && (
-                  <div className="flex items-center justify-center gap-2 text-xs text-green-600">
+                  <div className="flex items-center justify-center gap-2 text-sm text-green-600">
                     <CheckCircle className="h-3 w-3" />
                     Message sent! We'll contact you shortly.
                   </div>

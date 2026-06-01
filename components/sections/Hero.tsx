@@ -10,14 +10,14 @@ export function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-slate-950 border-b border-slate-900">
       <Image
-        src="/hero.jpg"
+        src="/about-eps.png"
         alt="EPS Services professional team caring for a Singapore home"
         fill
         priority
         sizes="100vw"
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-slate-950/60" />
+      <div className="absolute inset-0 bg-slate-900/60" />
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/45 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-slate-950/20" />
 
@@ -59,7 +59,7 @@ export function Hero() {
                 ))}
               </div>
               <span className="text-sm">
-                <span className="font-medium text-white">5.0</span> from 120+ reviews
+                <span className="font-medium text-white">5.0</span> from Our Customers
               </span>
             </div>
             <div className="flex items-center gap-2 text-sm">
