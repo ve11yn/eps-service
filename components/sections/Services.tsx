@@ -9,7 +9,7 @@ const FEATURED_SERVICES = [
     longDescription: "Deep cleaning, move-in/out cleaning, and routine maintenance by trained specialists. We use eco-friendly products and ensure every corner is spotless.",
     icon: Sparkles,
     image: "/cleaning.png",
-    href: "/services/cleaning",
+    href: "/service/cleaning",
     features: ["Deep cleaning", "Move-in/out", "Routine maintenance", "Eco-friendly products"]
   },
   {
@@ -18,7 +18,7 @@ const FEATURED_SERVICES = [
     longDescription: "Interior and exterior repainting with low-odour, premium-grade finishes. Our team ensures minimal disruption and perfect results.",
     icon: Paintbrush,
     image: "/painting.png",
-    href: "/services/painting",
+    href: "/service/painting",
     features: ["Interior/Exterior", "Low-odour paint", "Premium finishes", "Minimal disruption"]
   },
   {
@@ -27,7 +27,7 @@ const FEATURED_SERVICES = [
     longDescription: "From fixtures to major fixes, our handyman team handles it all. Licensed, insured, and ready to solve your problems.",
     icon: Wrench,
     image: "/repair.png",
-    href: "/services/repair",
+    href: "/service/repairs",
     features: ["Fixtures & fittings", "Minor repairs", "Major fixes", "Licensed specialists"]
   },
 ];
