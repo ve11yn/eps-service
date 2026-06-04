@@ -10,7 +10,7 @@ export function Hero() {
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-slate-950 border-b border-slate-900">
       {/* Regular img tag - guaranteed to work */}
       <img
-        src="/about-eps.png"
+        src="/details/about-eps.png"
         alt="EPS Services professional team caring for a Singapore home"
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
