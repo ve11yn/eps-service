@@ -9,8 +9,7 @@ const FEATURED_SERVICES = [
     longDescription: "Deep cleaning, move-in/out cleaning, and routine maintenance by trained specialists. We use eco-friendly products and ensure every corner is spotless.",
     icon: Sparkles,
     image: "/cleaning.png",
-    href: "/service/cleaning",
-    features: ["Deep cleaning", "Move-in/out", "Routine maintenance", "Eco-friendly products"]
+    href: "/service"
   },
   {
     title: "Painting",
@@ -18,8 +17,7 @@ const FEATURED_SERVICES = [
     longDescription: "Interior and exterior repainting with low-odour, premium-grade finishes. Our team ensures minimal disruption and perfect results.",
     icon: Paintbrush,
     image: "/painting.png",
-    href: "/service/painting",
-    features: ["Interior/Exterior", "Low-odour paint", "Premium finishes", "Minimal disruption"]
+    href: "/service"
   },
   {
     title: "Repair",
@@ -27,8 +25,7 @@ const FEATURED_SERVICES = [
     longDescription: "From fixtures to major fixes, our handyman team handles it all. Licensed, insured, and ready to solve your problems.",
     icon: Wrench,
     image: "/repair.png",
-    href: "/service/repairs",
-    features: ["Fixtures & fittings", "Minor repairs", "Major fixes", "Licensed specialists"]
+    href: "/service"
   },
 ];
 
@@ -56,54 +53,45 @@ export function Services() {
           {FEATURED_SERVICES.map((service) => {
             const Icon = service.icon;
             return (
-              <div
+              <Link
                 key={service.title}
-                className="group bg-white rounded-md overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
+                href={service.href}
+                className="group block bg-white rounded-md overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#1E73D8]/20"
               >
-                {/* Image slot */}
-                <div className="relative h-48 overflow-hidden bg-gray-100">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  
-                  {/* Icon overlay */}
-                  <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm rounded-xl p-2 shadow-md">
-                    <Icon className="h-5 w-5 text-[#1E73D8]" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-5">
-                  <h3 className="text-xl font-medium text-slate-800">{service.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-                    {service.description}
-                  </p>
-                  
-                  {/* Feature chips */}
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {service.features.slice(0, 2).map((feature) => (
-                      <span key={feature} className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
-                        {feature}
-                      </span>
-                    ))}
-                    {service.features.length > 2 && (
-                      <span className="text-xs text-gray-400">+{service.features.length - 2} more</span>
-                    )}
+                <div className="cursor-pointer">
+                  {/* Image slot */}
+                  <div className="relative h-48 overflow-hidden bg-gray-100">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    
+                    {/* Icon overlay */}
+                    <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm rounded-xl p-2 shadow-md">
+                      <Icon className="h-5 w-5 text-[#1E73D8]" />
+                    </div>
                   </div>
 
-                  {/* View details link */}
-                  <Link
-                    href={service.href}
-                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[#1E73D8] hover:gap-2 transition-all"
-                  >
-                    Learn more <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
+                  {/* Content */}
+                  <div className="p-5">
+                    <h3 className="text-xl font-medium text-slate-800 group-hover:text-[#1E73D8] transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+                      {service.description}
+                    </p>
+                    
+
+                    {/* View details link - now decorative, as entire card is clickable */}
+                    <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[#1E73D8] group-hover:gap-2 transition-all">
+                      Learn more <ArrowRight className="h-3.5 w-3.5" />
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

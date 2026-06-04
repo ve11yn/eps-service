@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, ArrowRight, Phone } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import Link from "next/link";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/#home" },
   { label: "About", href: "/#about" },
-  { label: "Services", href: "/service", hasDropdown: true },
+  { label: "Service", href: "/service" },
   { label: "Reviews", href: "/#reviews" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -16,7 +16,6 @@ const NAV_ITEMS = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -43,12 +42,7 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
             {NAV_ITEMS.map((item) => (
-              <div
-                key={item.href}
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(item.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
+              <div key={item.href} className="relative">
                 <Link
                   href={item.href}
                   className={`flex items-center gap-1 text-sm font-medium transition-all duration-200 ${
@@ -58,47 +52,7 @@ export function Navbar() {
                   } relative py-1.5 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#1E73D8] after:transition-all after:duration-300 hover:after:w-full`}
                 >
                   {item.label}
-                  {item.hasDropdown && (
-                    <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover:rotate-180" />
-                  )}
                 </Link>
-
-                {/* Dropdown menu - fixed positioning */}
-                {item.hasDropdown && activeDropdown === item.label && (
-                  <div className="absolute left-0 top-full pt-1 w-52 z-50">
-                    <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-1.5 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <Link
-                        href="/service/cleaning"
-                        onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#1E73D8] transition"
-                      >
-                        Cleaning Services
-                      </Link>
-                      <Link
-                        href="/service/repairs"
-                        onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#1E73D8] transition"
-                      >
-                        Repairs & Maintenance
-                      </Link>
-                      <Link
-                        href="/service/painting"
-                        onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#1E73D8] transition"
-                      >
-                        Painting Services
-                      </Link>
-                      <div className="h-px bg-gray-100 my-1" />
-                      <Link
-                        href="/service"
-                        onClick={() => setActiveDropdown(null)}
-                        className="block px-4 py-2 text-sm font-medium text-[#1E73D8] hover:bg-gray-50 transition"
-                      >
-                        View All Services →
-                      </Link>
-                    </div>
-                  </div>
-                )}
               </div>
             ))}
           </nav>
@@ -153,7 +107,6 @@ export function Navbar() {
                       className="flex items-center justify-between px-3 py-3 rounded-xl text-gray-800 font-medium hover:bg-gray-50 hover:text-[#1E73D8] transition"
                     >
                       {item.label}
-                      {item.hasDropdown && <ChevronDown className="h-3.5 w-3.5" />}
                     </Link>
                   </div>
                 ))}
