@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ArrowRight, Phone, Star, BadgeCheck } from "lucide-react";
 
 const PHONE = "+65 8274 4647";
@@ -9,14 +8,13 @@ const PHONE_TEL = "+6582744647";
 export function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-slate-950 border-b border-slate-900">
-      <Image
+      {/* Regular img tag - guaranteed to work */}
+      <img
         src="/about-eps.png"
         alt="EPS Services professional team caring for a Singapore home"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
+        className="absolute inset-0 w-full h-full object-cover object-center"
       />
+      
       <div className="absolute inset-0 bg-slate-900/60" />
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/45 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-slate-950/20" />
