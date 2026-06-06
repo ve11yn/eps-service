@@ -9,6 +9,8 @@ type ServiceCategory = "Cleaning" | "Painting" | "Repairs";
 
 type GalleryImage = {
   src: string;
+  displaySrc: string;
+  thumbSrc: string;
   alt: string;
   width: number;
   height: number;
@@ -26,10 +28,14 @@ type Service = {
 };
 
 const asset = (path: string) => `/services-assets/${path}`;
+const displayAsset = (path: string) => `/services-assets/display/${path}`;
+const thumbAsset = (path: string) => `/services-assets/thumbs/${path}`;
 
 function buildImage(path: string, alt: string, width = 1080, height = 1080): GalleryImage {
   return {
     src: asset(path),
+    displaySrc: displayAsset(path),
+    thumbSrc: thumbAsset(path),
     alt,
     width,
     height,
@@ -39,6 +45,8 @@ function buildImage(path: string, alt: string, width = 1080, height = 1080): Gal
 function buildGallery(serviceName: string, label: string, paths: string[], width = 1080, height = 1080): GalleryImage[] {
   return paths.map((path, index) => ({
     src: asset(path),
+    displaySrc: displayAsset(path),
+    thumbSrc: thumbAsset(path),
     alt: `${serviceName} ${label} ${index + 1}`,
     width,
     height,
@@ -285,12 +293,12 @@ function ImageGridSection({
             className="group relative aspect-square overflow-hidden rounded-md bg-slate-200 text-left"
           >
             <Image
-              src={image.src}
+              src={image.thumbSrc}
               alt={image.alt}
               fill
               className="object-cover transition duration-300 group-hover:scale-[1.02]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              quality={64}
+              quality={58}
             />
           </button>
         ))}
@@ -347,12 +355,12 @@ function ServiceCard({ service, onClick }: { service: Service; onClick: () => vo
     >
       <div className="relative h-56 overflow-hidden bg-slate-900 md:h-64">
         <Image
-          src={service.image.src}
+          src={service.image.thumbSrc}
           alt={service.image.alt}
           fill
           className="object-cover transition duration-700 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          quality={68}
+          quality={58}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
@@ -392,38 +400,43 @@ function ServiceModal({ service, onClose }: { service: Service | null; onClose: 
           onClick={(event) => event.stopPropagation()}
         >
           <button
+            type="button"
             onClick={onClose}
-            className="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 shadow-lg backdrop-blur-sm transition-colors hover:bg-white"
+            className="absolute right-4 top-4 z-30 rounded-full bg-white/90 p-2 shadow-lg backdrop-blur-sm transition-colors hover:bg-white"
           >
             <X className="h-5 w-5 text-slate-700" />
           </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveImage(service.image)}
-            className="relative block h-[360px] w-full overflow-hidden border-0 bg-slate-900 p-0 text-left md:h-[420px]"
-          >
-            <Image
-              src={service.image.src}
-              alt={service.image.alt}
-              fill
-              className="object-cover object-center"
-              sizes="100vw"
-              quality={74}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/45" />
-            <div className="absolute inset-x-0 bottom-0 p-8 md:p-10">
-              <div className="max-w-4xl">
-                <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+          <div className="relative min-h-[360px] overflow-hidden bg-[#07111f] md:min-h-[420px]">
+            <button
+              type="button"
+              onClick={() => setActiveImage(service.image)}
+              className="absolute inset-y-0 right-0 block h-full w-full overflow-hidden border-0 p-0 text-left lg:w-[48%]"
+            >
+              <Image
+                src={service.image.displaySrc}
+                alt={service.image.alt}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 48vw"
+                quality={66}
+              />
+              <div className="absolute inset-0 bg-[#0a1d42]/70" />
+              <div className="absolute inset-0 bg-gradient-to-l from-[#08152f]/20 via-[#0a1d42]/55 to-[#07111f]" />
+            </button>
+
+            <div className="relative z-10 flex min-h-[360px] items-center px-8 py-7 md:min-h-[420px] md:px-10 md:py-8">
+              <div className="max-w-3xl lg:max-w-[56%]">
+                <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
                   {service.category}
                 </span>
                 <h2 className="mt-4 text-3xl font-bold text-white md:text-4xl">{service.name}</h2>
-                <p className="mt-4 max-w-3xl text-sm leading-relaxed text-white/85 md:text-base">
+                <p className="mt-4 text-sm leading-relaxed text-white/85 md:text-base">
                   {service.description}
                 </p>
               </div>
             </div>
-          </button>
+          </div>
 
           <div className="p-8 md:p-10">
             <div>
@@ -449,7 +462,7 @@ function ServiceModal({ service, onClose }: { service: Service | null; onClose: 
 
           <ImageGridSection
             title="More Project Images"
-            images={service.detailImages}
+            images={[service.image, ...service.detailImages]}
             onImageClick={setActiveImage}
           />
 
